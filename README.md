@@ -1,69 +1,43 @@
-# React + TypeScript + Vite
+# 🎶 Theory Thing v2: Your Interactive Music Theory Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### A modern, interactive web application for learning and experimenting with music theory concepts.
 
-Currently, two official plugins are available:
+## 🚀 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Theory Thing** is a sleek, web-based tool designed to help musicians and enthusiasts understand fundamental music theory. It allows you to select a root note and a scale (major or minor) and then instantly play the chords that belong to that scale. It's a hands-on way to explore how chords are built and how they relate to each other.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Root Note Selection**: Easily choose any of the 12 chromatic notes as your starting point.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Scale Selection**: Switch between major and minor scales to see how the chords change.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Interactive Chord Player**: Press buttons or use your keyboard's number keys (1-7) to play the diatonic chords of your selected scale.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Real-Time Feedback**: The app displays the current scale and the notes being played in the chord, giving you instant visual feedback.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Modern UI**: A visually appealing interface built with **shadcn/ui** and a modern, glass-morphic design.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🎹 How to Use
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Select a Root Note**: Click on any of the note buttons (C, D, E, etc.) to set your starting note.
+
+2. **Select a Scale**: Choose either "Major" or "Minor" to define the tonal context.
+
+3. **Play Chords**: Click the numbered buttons (1-7) to hear the chords of the scale.
+
+4. **Enjoy!**: Watch the display update with the current scale and the notes of the chord you are playing.
+
+## 🛠️ Technologies Used
+
+- **React**: For building the user interface.
+
+- **Tailwind CSS**: A utility-first CSS framework for rapid and responsive styling.
+
+- **shadcn/ui**: A collection of reusable components built with Tailwind CSS.
+
+- **Tone.js**: A powerful framework for creating interactive music in the browser.
+
+## ➡️ Get Started
+
+Feel free to explore the code, contribute, or fork this project to add your own features!
