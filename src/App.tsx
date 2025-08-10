@@ -1433,19 +1433,25 @@ function Desktop() {
         </Card>
       </div>
 
-      <p className="absolute bottom-1 right-2 text-primary font-mono">
-        taariq elliott
-      </p>
       <div className="absolute bottom-1 left-2">
         <a
           href="https://www.github.com/taariqelliott"
           className="flex gap-1 items-center justify-center"
           target="_blank"
         >
-          <Github className="text-primary transition-all duration-200 hover:text-fuchsia-500" />
-          <p className="font-mono text-primary transition-all duration-200 hover:text-fuchsia-500">
-            gitHub
+          <Github className="text-primary transition-all duration-200 hover:text-amber-500" />
+          <p className="font-mono text-primary transition-all duration-200 hover:text-amber-500">
+            GitHub
           </p>
+        </a>
+      </div>
+
+      <div className="absolute bottom-1 right-2 text-primary font-mono flex gap-1 items-center justify-center">
+        <p className="text-xs">Developed by</p>
+        <a href="https://taariqelliott.dev" target="_blank">
+          <Badge className="hover:bg-amber-500 transition-all duration-200">
+            @taariqelliott
+          </Badge>
         </a>
       </div>
     </div>
