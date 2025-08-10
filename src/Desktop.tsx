@@ -1183,7 +1183,7 @@ function Desktop() {
     <div className="container mx-auto px-4 py-6 max-w-4xl">
       <div className="mb-6">
         <div className="flex items-center justify-between">
-          <Badge className="text-3xl font-bold">Theory Thing v2</Badge>
+          <Badge className="text-3xl font-bold">Theory Thing</Badge>
           <ModeToggle />
         </div>
       </div>
