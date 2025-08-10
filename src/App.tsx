@@ -26,7 +26,7 @@ function Desktop() {
     setChordValue(e.target.innerText);
   };
 
-  const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+  const synth = new Tone.PolySynth(Tone.AMSynth).toDestination();
   synth.volume.value = -5;
 
   const playChord = (button: string) => {
