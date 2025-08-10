@@ -1300,7 +1300,7 @@ function Desktop() {
           <CardContent>
             <div className="flex gap-4 justify-center">
               <Button
-                variant={chordValue === "major" ? "default" : "outline"}
+                variant={chordValue === "Major" ? "default" : "outline"}
                 size="lg"
                 className="w-32"
                 onClick={updateChordValue}
