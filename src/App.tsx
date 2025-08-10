@@ -347,7 +347,7 @@ function Desktop() {
         setChordNotes("F# - A# - C# - F");
       } else if (chordValue === "major") {
         synth.triggerAttackRelease(["G3", "A#3", "D4", "F4"], "4n");
-        setWhichChord("F## minor 7th");
+        setWhichChord("F# minor 7th");
         setChordNotes("G - A# - D - F");
       }
     }
@@ -399,7 +399,7 @@ function Desktop() {
         setChordNotes("C# - F - G# - B");
       } else if (chordValue === "major") {
         synth.triggerAttackRelease(["D4", "F4", "G#4", "C5"], "4n");
-        setWhichChord("C## half-diminished 7th");
+        setWhichChord("C# half-diminished 7th");
         setChordNotes("D - F - G# - C");
       }
     }
@@ -873,7 +873,7 @@ function Desktop() {
         setChordNotes("F# - A# - C# - E");
       } else if (chordValue === "major") {
         synth.triggerAttackRelease(["G3", "A#3", "C#4", "F4"], "4n");
-        setWhichChord("F## half-diminished 7th");
+        setWhichChord("F# half-diminished 7th");
         setChordNotes("G - A# - C# - F");
       }
     }
@@ -1011,7 +1011,7 @@ function Desktop() {
         setChordNotes("C# - F - G# - C");
       } else if (chordValue === "major") {
         synth.triggerAttackRelease(["D4", "F4", "A4", "C5"], "4n");
-        setWhichChord("C## minor 7th");
+        setWhichChord("C# minor 7th");
         setChordNotes("D - F - A - C");
       }
     }
@@ -1050,7 +1050,7 @@ function Desktop() {
         setChordNotes("F# - A# - C# - F");
       } else if (chordValue === "major") {
         synth.triggerAttackRelease(["G3", "A#3", "D4", "F4"], "4n");
-        setWhichChord("F## minor 7th");
+        setWhichChord("F# minor 7th");
         setChordNotes("G - A# - D - F");
       }
     }
@@ -1063,7 +1063,7 @@ function Desktop() {
         setChordNotes("G# - C - D# - F#");
       } else if (chordValue === "major") {
         synth.triggerAttackRelease(["A3", "C4", "D#4", "G4"], "4n");
-        setWhichChord("G## half-diminished 7th");
+        setWhichChord("G# half-diminished 7th");
         setChordNotes("A - C - D# - G");
       }
     }
