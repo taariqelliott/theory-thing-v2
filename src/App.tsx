@@ -13,27 +13,26 @@ interface MouseEventWithTarget extends React.MouseEvent<HTMLButtonElement> {
 }
 
 function Desktop() {
-  const [noteValue, setNoteValue] = useState("");
-  const [chordValue, setChordValue] = useState("");
-  const [whichChord, setWhichChord] = useState("");
-  const [chordNotes, setChordNotes] = useState("");
-  const [activeChord, setActiveChord] = useState("");
+  const [noteValue, setNoteValue] = useState<string>("");
+  const [chordValue, setChordValue] = useState<string>("");
+  const [whichChord, setWhichChord] = useState<string>("");
+  const [chordNotes, setChordNotes] = useState<string>("");
+  const [activeChord, setActiveChord] = useState<string>("");
 
   const updateNoteValue = (e: MouseEventWithTarget) => {
     setNoteValue(e.target.innerText);
   };
-
   const updateChordValue = (e: MouseEventWithTarget) => {
     setChordValue(e.target.innerText);
   };
 
+  const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+  synth.volume.value = -5;
+
   const playChord = (button: string) => {
     // Synth engine
-    const synth = new Tone.PolySynth().toDestination();
     setActiveChord(button);
-
     /*--------------------------------------------------------------------*/
-
     // HANDLE ALL CHORDS IN C
 
     if (noteValue === "C" && button === "1") {
@@ -1300,12 +1299,12 @@ function Desktop() {
           <CardContent>
             <div className="flex gap-4 justify-center">
               <Button
-                variant={chordValue === "Major" ? "default" : "outline"}
+                variant={chordValue === "major" ? "default" : "outline"}
                 size="lg"
                 className="w-32"
                 onClick={updateChordValue}
               >
-                Major
+                major
               </Button>
               <Button
                 variant={chordValue === "minor" ? "default" : "outline"}
