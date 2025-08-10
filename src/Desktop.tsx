@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Music, Piano } from "lucide-react";
+import { Github, Music, Piano, Play } from "lucide-react";
 import { ModeToggle } from "./components/mode-toggle";
 
 interface MouseEventWithTarget extends React.MouseEvent<HTMLButtonElement> {
@@ -1180,250 +1180,275 @@ function Desktop() {
   }, [noteValue, chordValue]);
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-4xl">
-      <div className="mb-6">
-        <div className="flex items-center justify-between">
-          <Badge className="text-3xl font-bold">Theory Thing</Badge>
-          <ModeToggle />
+    <div className="relative w-full min-h-screen px-4 pt-6 pb-12">
+      <div className="container mx-auto max-w-4xl">
+        <div className="mb-6">
+          <div className="flex items-center justify-between">
+            <Badge className="text-3xl font-bold">Theory Thing</Badge>
+            <ModeToggle />
+          </div>
         </div>
+
+        <Card className="mb-6">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2">
+              <Piano className="h-5 w-5" />
+              <h4 className="text-lg">
+                1. Select <span className="text-primary">Root Note</span>
+              </h4>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+              <Button
+                variant={noteValue === "C" ? "default" : "outline"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                C
+              </Button>
+              <Button
+                variant={noteValue === "C#/Db" ? "default" : "secondary"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                C#/Db
+              </Button>
+              <Button
+                variant={noteValue === "D" ? "default" : "outline"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                D
+              </Button>
+              <Button
+                variant={noteValue === "D#/Eb" ? "default" : "secondary"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                D#/Eb
+              </Button>
+              <Button
+                variant={noteValue === "E" ? "default" : "outline"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                E
+              </Button>
+              <Button
+                variant={noteValue === "F" ? "default" : "outline"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                F
+              </Button>
+              <Button
+                variant={noteValue === "F#/Gb" ? "default" : "secondary"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                F#/Gb
+              </Button>
+              <Button
+                variant={noteValue === "G" ? "default" : "outline"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                G
+              </Button>
+              <Button
+                variant={noteValue === "G#/Ab" ? "default" : "secondary"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                G#/Ab
+              </Button>
+              <Button
+                variant={noteValue === "A" ? "default" : "outline"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                A
+              </Button>
+              <Button
+                variant={noteValue === "A#/Bb" ? "default" : "secondary"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                A#/Bb
+              </Button>
+              <Button
+                variant={noteValue === "B" ? "default" : "outline"}
+                className="h-12"
+                onClick={updateNoteValue}
+              >
+                B
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Music className="h-5 w-5" />
+              <h4 className="text-lg">
+                2. Select A <span className="text-primary">Scale</span>
+              </h4>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex gap-4 justify-center">
+              <Button
+                variant={chordValue === "major" ? "default" : "outline"}
+                size="lg"
+                className="w-32"
+                onClick={updateChordValue}
+              >
+                Major
+              </Button>
+              <Button
+                variant={chordValue === "minor" ? "default" : "outline"}
+                size="lg"
+                className="w-32"
+                onClick={updateChordValue}
+              >
+                minor
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-lg">
+              <CardTitle className="flex items-center gap-2">
+                <Play className="h-5 w-5" />
+                3. Press To <span className="text-primary">Play The Chord</span>
+              </CardTitle>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Press number keys 1-7 or click buttons below to play chords. Make
+              sure silent mode is off!
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              <Button
+                variant={activeChord === "1" ? "default" : "outline"}
+                className="h-16"
+                onClick={() => playChord("1")}
+              >
+                Chord 1
+              </Button>
+              <Button
+                variant={activeChord === "2" ? "default" : "outline"}
+                className="h-16"
+                onClick={() => playChord("2")}
+              >
+                Chord 2
+              </Button>
+              <Button
+                variant={activeChord === "3" ? "default" : "outline"}
+                className="h-16"
+                onClick={() => playChord("3")}
+              >
+                Chord 3
+              </Button>
+              <Button
+                variant={activeChord === "4" ? "default" : "outline"}
+                className="h-16"
+                onClick={() => playChord("4")}
+              >
+                Chord 4
+              </Button>
+              <Button
+                variant={activeChord === "5" ? "default" : "outline"}
+                className="h-16"
+                onClick={() => playChord("5")}
+              >
+                Chord 5
+              </Button>
+              <Button
+                variant={activeChord === "6" ? "default" : "outline"}
+                className="h-16"
+                onClick={() => playChord("6")}
+              >
+                Chord 6
+              </Button>
+              <Button
+                variant={activeChord === "7" ? "default" : "outline"}
+                className="h-16"
+                onClick={() => playChord("7")}
+              >
+                Chord 7
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
+              <div>
+                <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-2">
+                  Current Scale
+                </h2>
+                <h1 className="text-2xl font-bold">
+                  {noteValue || chordValue ? (
+                    <>
+                      <span className="text-primary">{noteValue}</span>
+                      {noteValue && chordValue && (
+                        <span className="mx-2">•</span>
+                      )}
+                      <span className="text-primary">{chordValue}</span>
+                    </>
+                  ) : (
+                    <span className="text-primary font-semibold font-mono">
+                      Select a note and scale
+                    </span>
+                  )}
+                </h1>
+              </div>
+
+              {whichChord && (
+                <div className="pt-2">
+                  <Badge variant="secondary" className="text-base px-4 py-2">
+                    {whichChord}
+                  </Badge>
+                </div>
+              )}
+
+              {chordNotes && (
+                <div className="pt-2">
+                  <p className="text-sm text-muted-foreground mb-1">
+                    Notes played
+                  </p>
+                  <p className="text-lg font-mono bg-muted px-4 py-2 rounded-md inline-block">
+                    {chordNotes}
+                  </p>
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
-      <Card className="mb-6">
-        <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-2">
-            <Piano className="h-5 w-5" />
-            <h4 className="text-lg">
-              1. Select <span className="text-primary">Root Note</span>
-            </h4>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-            <Button
-              variant={noteValue === "C" ? "default" : "outline"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              C
-            </Button>
-            <Button
-              variant={noteValue === "C#/Db" ? "default" : "secondary"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              C#/Db
-            </Button>
-            <Button
-              variant={noteValue === "D" ? "default" : "outline"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              D
-            </Button>
-            <Button
-              variant={noteValue === "D#/Eb" ? "default" : "secondary"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              D#/Eb
-            </Button>
-            <Button
-              variant={noteValue === "E" ? "default" : "outline"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              E
-            </Button>
-            <Button
-              variant={noteValue === "F" ? "default" : "outline"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              F
-            </Button>
-            <Button
-              variant={noteValue === "F#/Gb" ? "default" : "secondary"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              F#/Gb
-            </Button>
-            <Button
-              variant={noteValue === "G" ? "default" : "outline"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              G
-            </Button>
-            <Button
-              variant={noteValue === "G#/Ab" ? "default" : "secondary"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              G#/Ab
-            </Button>
-            <Button
-              variant={noteValue === "A" ? "default" : "outline"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              A
-            </Button>
-            <Button
-              variant={noteValue === "A#/Bb" ? "default" : "secondary"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              A#/Bb
-            </Button>
-            <Button
-              variant={noteValue === "B" ? "default" : "outline"}
-              className="h-12"
-              onClick={updateNoteValue}
-            >
-              B
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Music className="h-5 w-5" />
-            <h4 className="text-lg">
-              2. Select A <span className="text-primary">Scale</span>
-            </h4>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex gap-4 justify-center">
-            <Button
-              variant={chordValue === "major" ? "default" : "outline"}
-              size="lg"
-              className="w-32"
-              onClick={updateChordValue}
-            >
-              major
-            </Button>
-            <Button
-              variant={chordValue === "minor" ? "default" : "outline"}
-              size="lg"
-              className="w-32"
-              onClick={updateChordValue}
-            >
-              minor
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card className="mb-6">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-lg">
-            3. Press To <span className="text-primary">Play The Chord</span>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground mb-4">
-            Press number keys 1-7 or click buttons below to play chords. Make
-            sure silent mode is off!
+      <p className="absolute bottom-1 right-2 text-primary font-mono">
+        taariq elliott
+      </p>
+      <div className="absolute bottom-1 left-2">
+        <a
+          href="https://www.github.com/taariqelliott"
+          className="flex gap-1 items-center justify-center"
+          target="_blank"
+        >
+          <Github className="text-primary transition-all duration-200 hover:text-fuchsia-500" />
+          <p className="font-mono text-primary transition-all duration-200 hover:text-fuchsia-500">
+            gitHub
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            <Button
-              variant={activeChord === "1" ? "default" : "outline"}
-              className="h-16"
-              onClick={() => playChord("1")}
-            >
-              Chord 1
-            </Button>
-            <Button
-              variant={activeChord === "2" ? "default" : "outline"}
-              className="h-16"
-              onClick={() => playChord("2")}
-            >
-              Chord 2
-            </Button>
-            <Button
-              variant={activeChord === "3" ? "default" : "outline"}
-              className="h-16"
-              onClick={() => playChord("3")}
-            >
-              Chord 3
-            </Button>
-            <Button
-              variant={activeChord === "4" ? "default" : "outline"}
-              className="h-16"
-              onClick={() => playChord("4")}
-            >
-              Chord 4
-            </Button>
-            <Button
-              variant={activeChord === "5" ? "default" : "outline"}
-              className="h-16"
-              onClick={() => playChord("5")}
-            >
-              Chord 5
-            </Button>
-            <Button
-              variant={activeChord === "6" ? "default" : "outline"}
-              className="h-16"
-              onClick={() => playChord("6")}
-            >
-              Chord 6
-            </Button>
-            <Button
-              variant={activeChord === "7" ? "default" : "outline"}
-              className="h-16"
-              onClick={() => playChord("7")}
-            >
-              Chord 7
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card className="mb-6">
-        <CardContent className="pt-6">
-          <div className="text-center space-y-4">
-            <div>
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-2">
-                Current Scale
-              </h2>
-              <h1 className="text-3xl font-bold">
-                {noteValue || chordValue ? (
-                  <>
-                    <span className="text-primary">{noteValue}</span>
-                    {noteValue && chordValue && <span className="mx-2">•</span>}
-                    <span className="text-primary">{chordValue}</span>
-                  </>
-                ) : (
-                  <span className="text-primary">Select a note and scale</span>
-                )}
-              </h1>
-            </div>
-
-            {whichChord && (
-              <div className="pt-2">
-                <Badge variant="secondary" className="text-base px-4 py-2">
-                  {whichChord}
-                </Badge>
-              </div>
-            )}
-
-            {chordNotes && (
-              <div className="pt-2">
-                <p className="text-sm text-muted-foreground mb-1">
-                  Notes played
-                </p>
-                <p className="text-lg font-mono bg-muted px-4 py-2 rounded-md inline-block">
-                  {chordNotes}
-                </p>
-              </div>
-            )}
-          </div>
-        </CardContent>
-      </Card>
+        </a>
+      </div>
     </div>
   );
 }
