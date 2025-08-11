@@ -1224,26 +1224,33 @@ function Desktop() {
                 "A",
                 "A#/Bb",
                 "B",
-              ].map((note) => (
-                <Button
-                  key={note}
-                  variant={
-                    noteValue === note
-                      ? "default"
-                      : note.includes("#") || note.includes("b")
-                      ? "secondary"
-                      : "outline"
-                  }
-                  className={`h-14 font-semibold ${
-                    note.includes("#") || note.includes("b")
-                      ? "text-sm bg-stone-800 text-white hover:bg-stone-700 dark:bg-stone-700 dark:hover:bg-stone-600"
-                      : "text-base"
-                  } hover:scale-105 transition-all duration-200`}
-                  onClick={updateNoteValue}
-                >
-                  {note}
-                </Button>
-              ))}
+              ].map((note) => {
+                const isSelected = noteValue === note;
+                const isAccidental = note.includes("#") || note.includes("b");
+
+                return (
+                  <Button
+                    key={note}
+                    variant={
+                      isSelected
+                        ? "default"
+                        : isAccidental
+                        ? "secondary"
+                        : "outline"
+                    }
+                    className={`h-14 font-semibold font-mono ${
+                      isAccidental && !isSelected
+                        ? "text-sm bg-stone-800 text-white hover:bg-stone-700 dark:bg-stone-700 dark:hover:bg-stone-600"
+                        : isAccidental
+                        ? "text-sm"
+                        : "text-base"
+                    } hover:scale-105 transition-all duration-200`}
+                    onClick={updateNoteValue}
+                  >
+                    {note}
+                  </Button>
+                );
+              })}
             </div>
           </CardContent>
         </Card>
@@ -1267,7 +1274,7 @@ function Desktop() {
               <Button
                 variant={chordValue === "major" ? "default" : "outline"}
                 size="lg"
-                className="w-40 h-16 text-lg font-semibold hover:scale-105 transition-all duration-200"
+                className="w-40 h-16 text-lg font-mono font-semibold hover:scale-105 transition-all duration-200"
                 onClick={updateChordValue}
               >
                 major
@@ -1275,7 +1282,7 @@ function Desktop() {
               <Button
                 variant={chordValue === "minor" ? "default" : "outline"}
                 size="lg"
-                className="w-40 h-16 text-lg font-semibold hover:scale-105 transition-all duration-200"
+                className="w-40 h-16 text-lg font-mono font-semibold hover:scale-105 transition-all duration-200"
                 onClick={updateChordValue}
               >
                 minor
@@ -1307,7 +1314,7 @@ function Desktop() {
                   variant={
                     activeChord === num.toString() ? "default" : "outline"
                   }
-                  className="h-20 text-lg font-semibold hover:scale-105 transition-all duration-200 flex flex-col gap-1"
+                  className="h-20 text-lg font-semibold font-mono hover:scale-105 transition-all duration-200 flex flex-col gap-1"
                   onClick={() => playChord(num.toString())}
                 >
                   <span className="text-2xl">{num}</span>
