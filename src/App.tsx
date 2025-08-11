@@ -1179,7 +1179,7 @@ function Desktop() {
   }, [noteValue, chordValue]);
 
   return (
-    <div className="relative w-full min-h-screen px-4 pt-6 pb-12">
+    <div className="relative w-full min-h-screen px-4 pt-6 pb-12 bg-gradient-to-r from-primary/15 to-default to-40% bg-opacity-25	">
       <div className="container mx-auto max-w-4xl">
         <div className="mb-6">
           <div className="flex items-center justify-between">
@@ -1387,10 +1387,10 @@ function Desktop() {
         </Card>
 
         <Card className="mb-6">
-          <CardContent className="pt-6">
-            <div className="text-center space-y-4">
+          <CardContent className="pt-3">
+            <div className="text-center space-y-1">
               <div>
-                <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-2">
+                <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-1">
                   Current Scale
                 </h2>
                 <h1 className="text-2xl font-bold">
