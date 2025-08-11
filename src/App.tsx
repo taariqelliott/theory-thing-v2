@@ -1181,13 +1181,13 @@ function Desktop() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-purple-50 to-indigo-100 dark:from-stone-950 dark:via-stone-900 dark:to-stone-800">
       <div className="container mx-auto max-w-5xl px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-primary/10 rounded-lg">
               <Piano className="h-8 w-8 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bagel bg-gradient-to-r pb-1.5  from-primary to-purple-600 bg-clip-text text-transparent">
                 Theory Thing
               </h1>
             </div>
@@ -1202,7 +1202,9 @@ function Desktop() {
                 <Piano className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold">Select Root Note</h2>
+                <h2 className="text-xl font-sono font-semibold">
+                  Select A <span className="text-primary">Root Note</span>
+                </h2>
                 <p className="text-sm text-muted-foreground font-normal">
                   Choose your starting note
                 </p>
@@ -1262,7 +1264,9 @@ function Desktop() {
                 <Music className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold">Select Scale Type</h2>
+                <h2 className="text-xl font-sono font-semibold">
+                  Select A <span className="text-primary">Scale Type</span>
+                </h2>
                 <p className="text-sm text-muted-foreground font-normal">
                   Choose major or minor scale
                 </p>
@@ -1298,7 +1302,9 @@ function Desktop() {
                 <Play className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold">Play Chords</h2>
+                <h2 className="text-xl font-sono font-semibold">
+                  Play Some <span className="text-primary">Chords!</span>
+                </h2>
                 <p className="text-sm text-muted-foreground font-normal">
                   Press number keys 1-7 or click buttons • Make sure silent mode
                   is off!
