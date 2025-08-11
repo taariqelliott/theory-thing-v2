@@ -1179,121 +1179,87 @@ function Desktop() {
   }, [noteValue, chordValue]);
 
   return (
-    <div className="relative w-full min-h-screen px-4 pt-6 pb-12 bg-gradient-to-r from-primary/15 to-default to-40% bg-opacity-25	">
-      <div className="container mx-auto max-w-4xl">
-        <div className="mb-6">
-          <div className="flex items-center justify-between">
-            <Badge className="text-3xl font-bold">Theory Thing</Badge>
-            <ModeToggle />
+    <div className="min-h-screen bg-gradient-to-br from-stone-50 via-purple-50 to-indigo-100 dark:from-stone-950 dark:via-stone-900 dark:to-stone-800">
+      <div className="container mx-auto max-w-5xl px-4 py-8">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Piano className="h-8 w-8 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                Theory Thing
+              </h1>
+            </div>
           </div>
+          <ModeToggle />
         </div>
 
-        <Card className="mb-6">
-          <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2">
-              <Piano className="h-5 w-5" />
-              <h4 className="text-lg">
-                1. Select <span className="text-primary">Root Note</span>
-              </h4>
+        <Card className="border-0 shadow-lg bg-white/80 dark:bg-stone-900/80 backdrop-blur-sm mb-6">
+          <CardHeader className="pb-4">
+            <CardTitle className="flex items-center gap-3">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Piano className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold">Select Root Note</h2>
+                <p className="text-sm text-muted-foreground font-normal">
+                  Choose your starting note
+                </p>
+              </div>
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-              <Button
-                variant={noteValue === "C" ? "default" : "outline"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                C
-              </Button>
-              <Button
-                variant={noteValue === "C#/Db" ? "default" : "secondary"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                C#/Db
-              </Button>
-              <Button
-                variant={noteValue === "D" ? "default" : "outline"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                D
-              </Button>
-              <Button
-                variant={noteValue === "D#/Eb" ? "default" : "secondary"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                D#/Eb
-              </Button>
-              <Button
-                variant={noteValue === "E" ? "default" : "outline"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                E
-              </Button>
-              <Button
-                variant={noteValue === "F" ? "default" : "outline"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                F
-              </Button>
-              <Button
-                variant={noteValue === "F#/Gb" ? "default" : "secondary"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                F#/Gb
-              </Button>
-              <Button
-                variant={noteValue === "G" ? "default" : "outline"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                G
-              </Button>
-              <Button
-                variant={noteValue === "G#/Ab" ? "default" : "secondary"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                G#/Ab
-              </Button>
-              <Button
-                variant={noteValue === "A" ? "default" : "outline"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                A
-              </Button>
-              <Button
-                variant={noteValue === "A#/Bb" ? "default" : "secondary"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                A#/Bb
-              </Button>
-              <Button
-                variant={noteValue === "B" ? "default" : "outline"}
-                className="h-12"
-                onClick={updateNoteValue}
-              >
-                B
-              </Button>
+              {[
+                "C",
+                "C#/Db",
+                "D",
+                "D#/Eb",
+                "E",
+                "F",
+                "F#/Gb",
+                "G",
+                "G#/Ab",
+                "A",
+                "A#/Bb",
+                "B",
+              ].map((note) => (
+                <Button
+                  key={note}
+                  variant={
+                    noteValue === note
+                      ? "default"
+                      : note.includes("#") || note.includes("b")
+                      ? "secondary"
+                      : "outline"
+                  }
+                  className={`h-14 font-semibold ${
+                    note.includes("#") || note.includes("b")
+                      ? "text-sm bg-stone-800 text-white hover:bg-stone-700 dark:bg-stone-700 dark:hover:bg-stone-600"
+                      : "text-base"
+                  } hover:scale-105 transition-all duration-200`}
+                  onClick={updateNoteValue}
+                >
+                  {note}
+                </Button>
+              ))}
             </div>
           </CardContent>
         </Card>
 
-        <Card className="mb-6">
+        <Card className="border-0 shadow-lg bg-white/80 dark:bg-stone-900/80 backdrop-blur-sm mb-6">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Music className="h-5 w-5" />
-              <h4 className="text-lg">
-                2. Select A <span className="text-primary">Scale</span>
-              </h4>
+            <CardTitle className="flex items-center gap-3">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Music className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold">Select Scale Type</h2>
+                <p className="text-sm text-muted-foreground font-normal">
+                  Choose major or minor scale
+                </p>
+              </div>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -1301,7 +1267,7 @@ function Desktop() {
               <Button
                 variant={chordValue === "major" ? "default" : "outline"}
                 size="lg"
-                className="w-32"
+                className="w-40 h-16 text-lg font-semibold hover:scale-105 transition-all duration-200"
                 onClick={updateChordValue}
               >
                 major
@@ -1309,7 +1275,7 @@ function Desktop() {
               <Button
                 variant={chordValue === "minor" ? "default" : "outline"}
                 size="lg"
-                className="w-32"
+                className="w-40 h-16 text-lg font-semibold hover:scale-105 transition-all duration-200"
                 onClick={updateChordValue}
               >
                 minor
@@ -1318,141 +1284,118 @@ function Desktop() {
           </CardContent>
         </Card>
 
-        <Card className="mb-6">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg">
-              <CardTitle className="flex items-center gap-2">
-                <Play className="h-5 w-5" />
-                3. Press To <span className="text-primary">Play The Chord</span>
-              </CardTitle>
+        <Card className="border-0 shadow-lg bg-white/80 dark:bg-stone-900/80 backdrop-blur-sm mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-3">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Play className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold">Play Chords</h2>
+                <p className="text-sm text-muted-foreground font-normal">
+                  Press number keys 1-7 or click buttons • Make sure silent mode
+                  is off!
+                </p>
+              </div>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">
-              Press number keys 1-7 or click buttons below to play chords. Make
-              sure silent mode is off!
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              <Button
-                variant={activeChord === "1" ? "default" : "outline"}
-                className="h-16"
-                onClick={() => playChord("1")}
-              >
-                Chord 1
-              </Button>
-              <Button
-                variant={activeChord === "2" ? "default" : "outline"}
-                className="h-16"
-                onClick={() => playChord("2")}
-              >
-                Chord 2
-              </Button>
-              <Button
-                variant={activeChord === "3" ? "default" : "outline"}
-                className="h-16"
-                onClick={() => playChord("3")}
-              >
-                Chord 3
-              </Button>
-              <Button
-                variant={activeChord === "4" ? "default" : "outline"}
-                className="h-16"
-                onClick={() => playChord("4")}
-              >
-                Chord 4
-              </Button>
-              <Button
-                variant={activeChord === "5" ? "default" : "outline"}
-                className="h-16"
-                onClick={() => playChord("5")}
-              >
-                Chord 5
-              </Button>
-              <Button
-                variant={activeChord === "6" ? "default" : "outline"}
-                className="h-16"
-                onClick={() => playChord("6")}
-              >
-                Chord 6
-              </Button>
-              <Button
-                variant={activeChord === "7" ? "default" : "outline"}
-                className="h-16"
-                onClick={() => playChord("7")}
-              >
-                Chord 7
-              </Button>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+              {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+                <Button
+                  key={num}
+                  variant={
+                    activeChord === num.toString() ? "default" : "outline"
+                  }
+                  className="h-20 text-lg font-semibold hover:scale-105 transition-all duration-200 flex flex-col gap-1"
+                  onClick={() => playChord(num.toString())}
+                >
+                  <span className="text-2xl">{num}</span>
+                  <span className="text-xs opacity-70">Chord</span>
+                </Button>
+              ))}
             </div>
           </CardContent>
         </Card>
 
-        <Card className="mb-6">
-          <CardContent className="pt-3">
-            <div className="text-center space-y-1">
+        <Card className="border-0 shadow-lg bg-gradient-to-r from-primary/5 to-purple-500/5 dark:from-primary/10 dark:to-purple-500/10 mb-6">
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
               <div>
-                <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-1">
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">
                   Current Scale
-                </h2>
-                <h1 className="text-2xl font-bold">
+                </h3>
+                <div className="text-4xl font-bold">
                   {noteValue || chordValue ? (
-                    <>
+                    <div className="flex items-center justify-center gap-3">
                       <span className="text-primary">{noteValue}</span>
                       {noteValue && chordValue && (
-                        <span className="mx-2">•</span>
+                        <span className="text-muted-foreground">•</span>
                       )}
-                      <span className="text-primary">{chordValue}</span>
-                    </>
+                      <span className="text-primary capitalize">
+                        {chordValue}
+                      </span>
+                    </div>
                   ) : (
-                    <span className="text-primary font-semibold font-mono">
-                      Select a note and scale
+                    <span className="text-muted-foreground text-2xl">
+                      Select a note and scale above
                     </span>
                   )}
-                </h1>
+                </div>
               </div>
 
               {whichChord && (
-                <div className="pt-2">
-                  <Badge variant="secondary" className="text-base px-4 py-2">
+                <div>
+                  <Badge
+                    variant="secondary"
+                    className="text-lg px-6 py-2 font-semibold"
+                  >
                     {whichChord}
                   </Badge>
                 </div>
               )}
 
               {chordNotes && (
-                <div className="pt-2">
-                  <p className="text-sm text-muted-foreground mb-1">
-                    Notes played
-                  </p>
-                  <p className="text-lg font-mono bg-muted px-4 py-2 rounded-md inline-block">
-                    {chordNotes}
-                  </p>
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground">Notes Played</p>
+                  <div className="bg-muted/50 px-6 py-3 rounded-lg inline-block">
+                    <p className="text-xl font-mono font-semibold tracking-wider">
+                      {chordNotes}
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
           </CardContent>
         </Card>
-      </div>
 
-      <div className="absolute bottom-1 left-2">
-        <a
-          href="https://www.github.com/taariqelliott"
-          className="flex gap-1 items-center justify-center"
-          target="_blank"
-        >
-          <Github className="text-primary transition-all duration-200 hover:text-amber-500" />
-          <p className="font-mono text-primary transition-all duration-200 hover:text-amber-500">
-            GitHub
-          </p>
-        </a>
-      </div>
+        <div className="flex items-center justify-between mt-12 pt-8 border-t border-border/50">
+          <a
+            href="https://www.github.com/taariqelliott"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github className="h-5 w-5" />
+            <span className="font-medium">GitHub</span>
+          </a>
 
-      <div className="absolute bottom-1 right-2 text-primary font-mono flex gap-1 items-center justify-center">
-        <p className="text-xs">Developed by</p>
-        <a href="https://taariqelliott.dev" target="_blank">
-          <Badge className="hover:bg-amber-500 transition-all duration-200">
-            @taariqelliott
-          </Badge>
-        </a>
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <span className="text-sm">Developed by</span>
+            <a
+              href="https://taariqelliott.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Badge
+                variant="secondary"
+                className="hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+              >
+                @taariqelliott
+              </Badge>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
